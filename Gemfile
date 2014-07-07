@@ -41,8 +41,13 @@ gem 'thin'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Use GeoCoder to pull the user geo location and manipulate
+gem 'geocoder'
+gem 'gmaps4rails'
+gem 'timezone'
+
 group :test, :development do
-  gem 'haml'
+  gem 'haml-rails'
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'factory_girl_rails'
