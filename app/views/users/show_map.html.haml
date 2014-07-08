@@ -17,11 +17,13 @@
     }
     }
     function showPosition(position) {
-    night = "#{is_night?(position.coords.latitude, position.coords.longitude)}"
-    load_map(position.coords.latitude, position.coords.longitude, night)    	
+    $.get('#{ url_for :user_is_night }?lat=' + position.coords.latitude + '&' + 'lng=' + position.coords.longitude, function(response){
+    load_map(position.coords.latitude, position.coords.longitude, response);
+    });    
     }
     getLocation();  
 - else   
   %script{ type: "text/javascript" }
-    night = "#{is_night?(@user[:latitude], @user[:longitude])}"
-    load_map("#{@user[:latitude]}", "#{@user[:longitude]}", night)
+    $.get('#{ url_for :user_is_night }?lat=#{@user[:latitude]}&#{lng=@user[:longitude]}', function(response){
+    load_map("#{@user[:latitude]}", "#{@user[:longitude]}", response)
+    });

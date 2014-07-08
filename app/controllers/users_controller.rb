@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  include UsersHelper
+  
   def new
     @user = User.new
   end
@@ -40,6 +42,10 @@ class UsersController < ApplicationController
     else
       redirect_to signup_path
     end  
+  end
+  
+  def is_night
+    render text: is_night?(params[:lat], params[:lng]), layout: false
   end
   
   private

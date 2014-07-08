@@ -7,7 +7,7 @@
         - @user.errors.full_messages.each do |msg|
           %li= msg
   = f.label :email, 'Email:'
-  = f.text_field :email
+  = f.text_field :email, readonly: @user.id?
   %br
 
   = f.label :password, 'Password:'
