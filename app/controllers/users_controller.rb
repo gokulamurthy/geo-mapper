@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:notice] = 'The User is successfully saved!'
-      redirect_to user_show_map(@user)
+      redirect_to user_show_map_path(@user)
     else
       flash[:error] = @user.errors.full_messages
       redirect_to signup_path
